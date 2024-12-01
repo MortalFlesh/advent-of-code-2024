@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+APP="AdventOfCodeConsole"
+NET="net8.0"
+
+CONSOLE="bin/Debug/$NET/$APP.dll"
+if [ ! -f "$CONSOLE" ]; then
+    CONSOLE="bin/Release/$NET/$APP.dll"
+fi
+
+dotnet "$CONSOLE" "$@"
