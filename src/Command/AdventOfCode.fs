@@ -12,10 +12,40 @@ module AdventOfCode =
     [<RequireQualifiedAccess>]
     module private Day1 =
         let task1 (input: string list) =
-            42
+            let lines =
+                input
+                |> List.map (fun line ->
+                    match line.Split("   ") |> Array.map int with
+                    | [| left; right |] -> (left, right)
+                    | _ -> failwith "Invalid input"
+                )
+
+            let left = lines |> List.map fst |> List.sort
+            let right = lines |> List.map snd |> List.sort
+
+            left
+            |> List.mapi (fun i leftValue -> leftValue - right.[i] |> abs)
+            |> List.sum
 
         let task2 (input: string list) =
-            failwith "todo"
+            let lines =
+                input
+                |> List.map (fun line ->
+                    match line.Split("   ") |> Array.map int with
+                    | [| left; right |] -> (left, right)
+                    | _ -> failwith "Invalid input"
+                )
+
+            let left = lines |> List.map fst |> List.sort
+            let right = lines |> List.map snd |> List.groupBy id |> List.map (fun (i, values) -> (i, values |> List.length)) |> Map.ofList
+
+            left
+            |> List.map (fun leftValue ->
+                match right.TryFind leftValue with
+                | Some count -> leftValue * count
+                | _ -> 0
+            )
+            |> List.sum
 
     // todo - add more days here ...
 
