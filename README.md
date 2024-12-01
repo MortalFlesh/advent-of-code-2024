@@ -1,9 +1,9 @@
-Advent of Code 2022
+Advent of Code 2024
 ===================
 
-![Check](https://github.com/MortalFlesh/advent-of-code-2022/workflows/Check/badge.svg)
+![Check](https://github.com/MortalFlesh/advent-of-code-2024/workflows/Check/badge.svg)
 
-> A console app solving an [Advent of Code 2022](https://adventofcode.com/2022)
+> A console app solving an [Advent of Code 2024](https://adventofcode.com/2024)
 
 ## Usage
 
